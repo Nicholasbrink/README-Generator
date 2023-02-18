@@ -5,11 +5,33 @@ function generateMarkdown(data) {
   ## Description
   ${data.description}
 
+  ## Table of Contents
+  ${data.tableOfContents}
+
+  ## Installation
+  ${data.installation}
+
+  ## Usage
+  ${data.description}
+
   ## License
   ${data.license}
-  if (license === 'MIT') {
-    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
-  }`;
+
+  ## Contributing
+  ${data.contributing}
+
+  ## Tests
+  ${data.tests}
+
+  ## Questions
+  Have questions about this project?  
+  Github: https://github.com/${data.github}
+  Email: ${data.email}
+  
+  ## Credits
+  ${data.name}
+
+   `;
 }
 
 module.exports = generateMarkdown;

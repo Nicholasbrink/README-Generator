@@ -19,9 +19,17 @@ const questions = [
   },
   //Table of Contents
   {
-    type: "input",
-    name: "table of contents",
-    message: "what is your table of contents?",
+    type: "checkbox",
+    name: "tableOfContents",
+    message: "Please select table of contents from list below?",
+    choices: [
+      "Installation",
+      "Usage",
+      "Licence",
+      "Contributing",
+      "Tests",
+      "Questions",
+    ],
   },
   //Installation
   {
@@ -32,8 +40,9 @@ const questions = [
   //Usage
   {
     type: "input",
-    name: "instalation",
-    message: "what is your usage?",
+    name: "usage",
+    message:
+      "Please provide instructions and examples of use? Please use screenshots as needed",
   },
 
   //Licence
@@ -47,36 +56,44 @@ const questions = [
   {
     type: "input",
     name: "contributing",
-    message: "Who is the contributor?",
+    message: "lease provide ways that others can contribute to this project?",
   },
   //Tests
   {
     type: "input",
     name: "tests",
-    message: "what is your project description?",
+    message: "Please list your test instructions?",
   },
   //Questions-Github
   {
     type: "input",
-    name: "questions",
+    name: "github",
     message: "what is your Github username?",
   },
   //Questions-email
   {
     type: "input",
-    name: "questions",
+    name: "email",
     message: "what is your email address?",
+  },
+
+  //Questions-email
+  {
+    type: "input",
+    name: "name",
+    message: "what is your name?",
   },
 ];
 
 // function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile("README.MD", data, (err) => {
-    if (err) {
+  fs.writeFile("README.md", readmeText, (error) => {
+    if (error) {
       console.error(err);
     } else {
       console.log("success!");
     }
+    fs.writeFileSync(path.join(process.cwd(), "readme"), readmeText);
   });
 }
 
@@ -84,7 +101,8 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then((answers) => {
     console.log(answers);
-    const markdown = generateMarkdown(answers);
+    const readmeText = generateMarkdown(answers);
+    console.log(readmeText);
   });
 }
 
