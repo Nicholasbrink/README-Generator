@@ -1,11 +1,13 @@
+const fs = require("fs");
+
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
+  // [text with the link](URL of the link) 
 
-  ${data.tableOfContents}
   ## Table of Contents
-  1. [Description](#description)   //[text with the link](URL of the link) 
+  1. [Description](#description)   
   2. [Installation](#installation)
   3. [Usage](#usage)
   4. [Licence](#licence)
@@ -33,7 +35,7 @@ function generateMarkdown(data) {
 
   ## Questions
   Have questions about this project?  
-  Github: https://github.com/${data.github}
+  Github: https://github.com/${data.github} \n
   Email: ${data.email}
   
   ## Credits

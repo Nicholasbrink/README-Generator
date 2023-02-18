@@ -17,24 +17,25 @@ const questions = [
     name: "description",
     message: "What is your project description?",
   },
-  //Table of Contents
-  {
-    type: "checkbox",
-    name: "tableOfContents",
-    message: "Please select table of contents from list below?",
-    choices: [
-      "Installation",
-      "Usage",
-      "Licence",
-      "Contributing",
-      "Tests",
-      "Questions",
-    ],
-  },
+  // //Table of Contents
+  // {
+  //   type: "checkbox",
+  //   name: "tableOfContents",
+  //   message: "Please select table of contents from list below?",
+  //   choices: [
+  //     "Installation",
+  //     "Usage",
+  //     "Licence",
+  //     "Contributing",
+  //     "Tests",
+  //     "Questions",
+  //   ],
+  // },
+
   //Installation
   {
     type: "input",
-    name: "instalation",
+    name: "installation",
     message: "Please type ouu your installation instructions?",
   },
   //Usage
@@ -87,13 +88,12 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile("README.md", readmeText, (error) => {
+  fs.writeFile("./README.md", readmeText, (error) => {
     if (error) {
       console.error(err);
     } else {
       console.log("success!");
     }
-    fs.writeFileSync(path.join(process.cwd(), "readme"), readmeText);
   });
 }
 
@@ -103,6 +103,7 @@ function init() {
     console.log(answers);
     const readmeText = generateMarkdown(answers);
     console.log(readmeText);
+    fs.writeFileSync(path.join(process.cwd(), "README.md"), readmeText);
   });
 }
 
