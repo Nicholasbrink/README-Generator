@@ -4,7 +4,7 @@ const fs = require("fs");
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  // [text with the link](URL of the link) 
+  ![License: ${data.license}](https://img.shields.io/badge/License-${data.license}-brightgreen.svg)
 
   ## Table of Contents
   1. [Description](#description)   
@@ -28,6 +28,7 @@ function generateMarkdown(data) {
   ${data.license}
 
   ## Contributing
+  Please follow the instructions below if you would like to ontribute to the project:
   ${data.contributing}
 
   ## Tests

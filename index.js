@@ -36,7 +36,7 @@ const questions = [
   {
     type: "input",
     name: "installation",
-    message: "Please type ouu your installation instructions?",
+    message: "Please type out your installation instructions?",
   },
   //Usage
   {
@@ -49,8 +49,8 @@ const questions = [
   //Licence
   {
     type: "list",
-    choices: ["MIT", "GPL", "GNU", "Bsd-2-Clause"],
-    name: "licence",
+    choices: ["MIT", "GPL", "GNU", "Apache", "None"],
+    name: "license",
     message: "Please select your project licence?",
   },
   //Contributing
@@ -88,11 +88,11 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile("./README.md", readmeText, (error) => {
+  fs.writeFile("README.md", readmeText, (error) => {
     if (error) {
       console.error(err);
     } else {
-      console.log("success!");
+      console.log("Your README has been created!");
     }
   });
 }
@@ -101,8 +101,8 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then((answers) => {
     console.log(answers);
-    const readmeText = generateMarkdown(answers);
-    console.log(readmeText);
+    readmeText = generateMarkdown(answers);
+    
     fs.writeFileSync(path.join(process.cwd(), "README.md"), readmeText);
   });
 }
