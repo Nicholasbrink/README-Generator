@@ -29,7 +29,7 @@ node index.js
 
 ![Screenshot_20230222_005636](https://user-images.githubusercontent.com/117687727/220494627-299af955-59a8-4c0d-b901-9372d456e666.png)
 
-Video showing the use of the project in action:
+Click on Video to show the use of the project in action:
 https://user-images.githubusercontent.com/117687727/224299584-5f2a923f-5673-4015-a897-ba672d01c18e.mp4
 
 ## License
